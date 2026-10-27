@@ -9,9 +9,7 @@
   let current = 0;
   let charts = {};
 
-  // 初始化 ECharts 图表
   function initCharts() {
-    // 图表 1：事件研究法 CAR 走势
     const chartCar = document.getElementById('chart-car');
     if (chartCar) {
       charts.car = echarts.init(chartCar);
@@ -31,7 +29,6 @@
       });
     }
 
-    // 图表 2：不同品牌依赖度的影响
     const chartBar = document.getElementById('chart-bar');
     if (chartBar) {
       charts.bar = echarts.init(chartBar);
@@ -50,7 +47,6 @@
       });
     }
 
-    // 图表 3：ESG 评估与资金流
     const chartPie = document.getElementById('chart-pie');
     if (chartPie) {
       charts.pie = echarts.init(chartPie);
@@ -64,7 +60,7 @@
           avoidLabelOverlap: false,
           itemStyle: { borderRadius: 10, borderColor: '#0b1220', borderWidth: 2 },
           label: { show: false, position: 'center' },
-          emphasis: { label: { show: true, fontSize: 20, fontWeight: 'bold', color: '#fff' } },
+          emphasis: { label: { show: true, fontSize: 18, fontWeight: 'bold', color: '#fff' } },
           labelLine: { show: false },
           data: [
             { value: 45, name: '被动 ETF 减仓', itemStyle: { color: '#d7b56d' } },
@@ -93,14 +89,11 @@
     prevBtn.style.opacity = current === 0 ? "0.3" : "1";
     nextBtn.style.opacity = current === total - 1 ? "0.3" : "1";
 
-    // 修复：当切换页面时，确保隐藏图表重新调整大小（否则在隐藏容器中渲染会变成 0 宽高）
-    if (slides[current]) {
-      setTimeout(() => {
-        if (current === 3 && charts.car) charts.car.resize();
-        if (current === 4 && charts.bar) charts.bar.resize();
-        if (current === 7 && charts.pie) charts.pie.resize();
-      }, 100);
-    }
+    setTimeout(() => {
+      if (current === 3 && charts.car) charts.car.resize();
+      if (current === 4 && charts.bar) charts.bar.resize();
+      if (current === 7 && charts.pie) charts.pie.resize();
+    }, 100);
   }
 
   function go(delta) {
@@ -118,7 +111,6 @@
     if (event.key === "End") { current = slides.length - 1; render(); }
   });
 
-  // 打印模式兼容
   document.getElementById("printBtn").addEventListener("click", () => {
     window.print();
   });
@@ -127,7 +119,6 @@
     Object.values(charts).forEach(chart => chart.resize());
   });
 
-  // 初始化
   window.onload = () => {
     initCharts();
     render();
