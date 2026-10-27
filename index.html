@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>代言人负面舆情与企业声誉资本定价</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- 引入 ECharts 图表库 -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 </head>
 <body>
   <header class="topbar">
@@ -18,22 +20,18 @@
     <!-- 1 封面 -->
     <section class="slide active" data-title="封面">
       <div class="slide-inner cover">
-        <div class="eyebrow">现代金融业务 · 热点解读</div>
-        <h1>代言人负面舆情与企业声誉资本定价</h1>
-        <p class="subtitle">基于信息定价、风险传导与制度映射的金融业务视角</p>
-        <div class="cover-grid">
-          <div class="cover-card">
+        <div class="eyebrow animate-up" style="--delay: 0.1s">现代金融业务 · 热点解读</div>
+        <h1 class="animate-up" style="--delay: 0.2s">代言人负面舆情与企业声誉资本定价</h1>
+        <p class="subtitle animate-up" style="--delay: 0.3s">基于信息定价、风险传导与制度映射的金融业务视角</p>
+        <div class="cover-grid animate-up" style="--delay: 0.4s">
+          <div class="cover-card glass">
             <span class="label">核心议题</span>
             <strong>声誉风险如何转化为金融市场的定价变量与约束条件？</strong>
           </div>
-          <div class="cover-card">
+          <div class="cover-card glass">
             <span class="label">分析框架</span>
             <strong>股票市场（事件研究） → 信贷与资管（风险传导） → ESG（争议评级）</strong>
           </div>
-        </div>
-        <div class="meta-line">
-          <span>课程：现代金融业务</span>
-          <span>汇报人：________</span>
         </div>
       </div>
     </section>
@@ -41,21 +39,21 @@
     <!-- 2 选题背景与核心问题 -->
     <section class="slide" data-title="选题背景">
       <div class="slide-inner">
-        <div class="slide-head">
+        <div class="slide-head animate-up" style="--delay: 0.1s">
           <span class="kicker">01 / 现象引入</span>
           <h2>选题背景与核心问题</h2>
         </div>
         <div class="two-col">
-          <div class="panel">
+          <div class="panel glass animate-up" style="--delay: 0.2s">
             <h3>热点现象：体育营销争议</h3>
             <p>近年来，品牌方频繁因代言人陷入负面舆情而宣布解约。这一行为不仅涉及公关层面的道德风险，更直接触发了企业资本定价与融资环境的连锁反应。</p>
           </div>
-          <div class="panel accent-panel">
+          <div class="panel accent-panel animate-up" style="--delay: 0.3s">
             <h3>金融学问题提取</h3>
             <p>企业声誉作为一项无形资本，在面临突发负面冲击时，金融市场（股票、信贷、资管）是产生必然的应激反应，还是存在特定的传导条件？</p>
           </div>
         </div>
-        <div class="callout">
+        <div class="callout animate-up" style="--delay: 0.4s">
           <strong>汇报逻辑：</strong>从“解约动作”的直觉中剥离，转向对“声誉风险定价机制”的量化与条件性分析。
         </div>
       </div>
@@ -64,24 +62,24 @@
     <!-- 3 核心分析框架 -->
     <section class="slide" data-title="分析框架">
       <div class="slide-inner">
-        <div class="slide-head">
+        <div class="slide-head animate-up" style="--delay: 0.1s">
           <span class="kicker">02 / 分析框架</span>
           <h2>声誉风险的金融传导链条</h2>
         </div>
-        <div class="flow">
-          <div class="flow-node">
+        <div class="flow animate-up" style="--delay: 0.2s">
+          <div class="flow-node glass">
             <span class="flow-tag">第一层</span>
             <h3>信息定价层（股票市场）</h3>
             <p>运用事件研究法（Event Study）度量负面信息曝光窗口内的异常收益（AR/CAR），分析市场即期反应。</p>
           </div>
           <div class="flow-arrow">→</div>
-          <div class="flow-node">
+          <div class="flow-node glass">
             <span class="flow-tag">第二层</span>
             <h3>风险传导层（信贷与资管）</h3>
             <p>分析声誉受损如何通过“合同现金流”与“质押物价值”约束，传导至银行授信条件及机构投资者行为。</p>
           </div>
           <div class="flow-arrow">→</div>
-          <div class="flow-node">
+          <div class="flow-node glass">
             <span class="flow-tag">第三层</span>
             <h3>制度映射层（ESG体系）</h3>
             <p>探讨国际争议评级框架（如MSCI）如何将声誉风险转化为可比较的风险类别，影响资金面配置。</p>
@@ -90,68 +88,61 @@
       </div>
     </section>
 
-    <!-- 4 股票市场定价机制 -->
+    <!-- 4 股票市场定价机制（引入图表） -->
     <section class="slide" data-title="股票市场定价">
-      <div class="slide-inner">
-        <div class="slide-head">
+      <div class="slide-inner relative">
+        <div class="slide-head animate-up" style="--delay: 0.1s">
           <span class="kicker">03 / 股票市场定价</span>
           <h2>信息定价机制与事件研究法</h2>
         </div>
-        <div class="two-col wide-left">
-          <div class="panel">
-            <h3>核心度量：异常收益（AR / CAR）</h3>
-            <ol class="clean-list numbered">
-              <li><strong>事件日划分：</strong>区分“负面舆情曝光日”与“公司宣布解约日”。</li>
-              <li><strong>参数估计：</strong>通过市场模型（Market Model）估算事件窗口内的预期收益。</li>
-              <li><strong>异常收益提取：</strong><span class="formula">AR = 实际收益 - 预期收益</span>。</li>
-            </ol>
-          </div>
-          <div class="panel formula-panel">
-            <h3>定价结论</h3>
-            <p class="small">实证研究（如 Bartz et al., 2013）表明：市场定价的核心是<strong>“负面信息曝光”本身</strong>，而公司宣布终止合同的“解约动作”并未带来显著的异常收益。</p>
-          </div>
+        <div class="chart-container animate-up" style="--delay: 0.2s">
+          <div id="chart-car" style="width: 100%; height: 380px;"></div>
         </div>
-        <div class="callout">
-          <strong>金融启示：</strong>股票市场的价格调整往往在信息曝光的第一时间完成。解约仅是企业控制风险的手段，而非引发股价波动的直接变量。
+        <div class="callout animate-up" style="--delay: 0.3s">
+          <strong>金融启示：</strong>实证研究（Bartz et al., 2013）表明，股票市场的价格调整往往在负面信息曝光的第一时间完成。解约仅是企业控制风险的手段，而非引发股价波动的直接变量。
+        </div>
+        <!-- 右下角引用 -->
+        <div class="citation animate-up" style="--delay: 0.4s">
+          Source: Bartz, A., Molchanov, A., & Stork, P. A. (2013). When a Celebrity Endorser Scandals. <em>Journal of Marketing</em>.
         </div>
       </div>
     </section>
 
-    <!-- 5 调节变量与影响程度 -->
+    <!-- 5 调节变量与影响程度（引入图表） -->
     <section class="slide" data-title="影响程度的调节变量">
-      <div class="slide-inner">
-        <div class="slide-head">
+      <div class="slide-inner relative">
+        <div class="slide-head animate-up" style="--delay: 0.1s">
           <span class="kicker">04 / 异质性分析</span>
-          <h2>影响程度的调节变量</h2>
+          <h2>市值损失的调节变量</h2>
         </div>
-        <div class="cards three">
-          <article class="card">
-            <div class="num">因素一</div>
-            <h3>品牌依赖度</h3>
-            <p>研究发现（如老虎伍兹案例），负面冲击导致的市值损失高度集中在核心赞助商。依赖度越高，声誉风险的现金流暴露越显著。</p>
-          </article>
-          <article class="card">
-            <div class="num">因素二</div>
-            <h3>企业响应速度</h3>
-            <p>在负面信息曝光后，企业若能迅速切断关联（如快速解约、发布声明），能有效降低后续的累计异常收益（CAR）损失。</p>
-          </article>
-          <article class="card">
-            <div class="num">因素三</div>
-            <h3>行业与周期特征</h3>
-            <p>消费类、直接面向C端的品牌对声誉极为敏感；而在B端或处于强势周期的企业，声誉冲击的边际影响相对有限。</p>
-          </article>
+        <div class="two-col">
+          <div class="panel glass animate-up" style="--delay: 0.2s; padding-top: 10px;">
+            <div id="chart-bar" style="width: 100%; height: 320px;"></div>
+          </div>
+          <div class="panel glass animate-up" style="--delay: 0.3s">
+            <h3>核心发现</h3>
+            <ul class="clean-list">
+              <li><strong>品牌依赖度：</strong>研究发现，负面冲击导致的市值损失高度集中在核心赞助商。依赖度越高，声誉风险的现金流暴露越显著。</li>
+              <li><strong>响应速度：</strong>企业若能迅速切断关联（如快速解约），能有效降低后续的累计异常收益（CAR）损失。</li>
+              <li><strong>行业特征：</strong>直接面向C端的消费品牌对声誉极为敏感，其边际影响远大于B端企业。</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 右下角引用 -->
+        <div class="citation animate-up" style="--delay: 0.4s">
+          Source: Knittel, C. R., & Stango, V. (2014). Celebrity Endorsements, Firm Value, and Reputation Risk. <em>Management Science</em>.
         </div>
       </div>
     </section>
 
     <!-- 6 信贷市场的风险传导 -->
     <section class="slide" data-title="信贷市场传导">
-      <div class="slide-inner">
-        <div class="slide-head">
+      <div class="slide-inner relative">
+        <div class="slide-head animate-up" style="--delay: 0.1s">
           <span class="kicker">05 / 银行信贷业务</span>
           <h2>声誉风险向授信条件的传导</h2>
         </div>
-        <div class="table-wrap">
+        <div class="table-wrap animate-up" style="--delay: 0.2s">
           <table>
             <thead>
               <tr>
@@ -174,54 +165,54 @@
             </tbody>
           </table>
         </div>
-        <p class="note">商业银行不直接为“舆情”定价，而是通过现金流受损程度与抵质押物折价这两项可验证变量，启动风控机制。</p>
+        <p class="note animate-up" style="--delay: 0.3s">商业银行不直接为“舆情”定价，而是通过现金流受损程度与抵质押物折价这两项可验证变量，启动风控机制。</p>
+        <div class="citation animate-up" style="--delay: 0.4s">
+          Source: 银行业信贷风险管理实务与巴塞尔协议（Basel III）关于无形资产质押的规定。
+        </div>
       </div>
     </section>
 
     <!-- 7 资管与卖方业务 -->
     <section class="slide" data-title="资管与卖方业务">
       <div class="slide-inner">
-        <div class="slide-head">
+        <div class="slide-head animate-up" style="--delay: 0.1s">
           <span class="kicker">06 / 证券业务</span>
           <h2>机构投资者的资产配置调整</h2>
         </div>
         <div class="two-col">
-          <div class="panel">
+          <div class="panel glass animate-up" style="--delay: 0.2s">
             <h3>卖方研究端</h3>
-            <p>只有当负面事件实质性改变了对企业未来盈利的预测，或带来了巨额合同赔偿时，卖方机构才会触发评级与目标价的下调。</p>
+            <p>只有当负面事件实质性改变了对企业未来盈利的预测，或带来了巨额合同赔偿时，卖方机构才会触发评级与目标价的下调。单纯的舆情快评不构成定价基础。</p>
           </div>
-          <div class="panel">
+          <div class="panel glass animate-up" style="--delay: 0.3s">
             <h3>资管与投行端</h3>
-            <p><strong>资管：</strong>带有特定 ESG 约束或舆情风控阈值的公募/私募基金，可能因标的触发风控模型而进行被动减仓。<br><br>
-            <strong>投行：</strong>在 IPO 或并购尽调中，若发现企业存在高度依赖单一 IP 或个人的风险，将强化对“道德条款”和“控制权变更”的合规审查。</p>
+            <p><strong>资管：</strong>带有特定 ESG 约束或舆情风控阈值的基金，可能因标的触发模型而进行被动减仓。<br><br>
+            <strong>投行：</strong>在 IPO 或并购尽调中，若发现企业存在高度依赖单一 IP 的风险，将强化对“道德条款”和“控制权变更”的合规审查。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 8 ESG争议评级 -->
+    <!-- 8 ESG争议评级（引入雷达图或环形图） -->
     <section class="slide" data-title="ESG争议评级">
-      <div class="slide-inner">
-        <div class="slide-head">
+      <div class="slide-inner relative">
+        <div class="slide-head animate-up" style="--delay: 0.1s">
           <span class="kicker">07 / ESG 评估体系</span>
           <h2>争议事件评级与资金面映射</h2>
         </div>
-        <div class="cards three">
-          <article class="card">
-            <h3>评估框架</h3>
-            <p>MSCI 或 Sustainalytics 等机构，通过争议事件评级（Controversy Rating）量化非财务风险。</p>
-          </article>
-          <article class="card">
-            <h3>评价维度</h3>
-            <p>评估事件的规模、影响范围、公司是否采取补救措施，以及对企业价值（Enterprise Value）的潜在侵蚀程度。</p>
-          </article>
-          <article class="card">
-            <h3>资金传导</h3>
-            <p>评级下调可能会直接导致被剔除出 ESG 主题指数，从而引发追踪该指数的被动型基金（ETF）抛售。</p>
-          </article>
+        <div class="two-col">
+          <div class="panel glass animate-up" style="--delay: 0.2s; padding-top: 10px;">
+             <div id="chart-pie" style="width: 100%; height: 320px;"></div>
+          </div>
+          <div class="panel glass animate-up" style="--delay: 0.3s">
+            <h3>评估维度与传导</h3>
+            <p>MSCI 或 Sustainalytics 等机构，通过争议事件评级量化非财务风险。主要评估事件的规模、影响范围、公司补救措施，以及对 EV（企业价值）的侵蚀程度。</p>
+            <p style="margin-top: 15px;">评级下调会导致标的被剔除出 ESG 主题指数，引发追踪该指数的 ETF 等被动型基金抛售，完成资金面的负反馈。</p>
+          </div>
         </div>
-        <div class="callout">
-          <strong>映射价值：</strong>ESG 评级并非道德审判，而是将声誉风险转化为标准化的投资筛选指标，改变了资本市场的资源配置流向。
+        <!-- 右下角引用 -->
+        <div class="citation animate-up" style="--delay: 0.4s">
+          Source: MSCI ESG Controversies Assessment Methodology & Sustainalytics ESG Risk Ratings.
         </div>
       </div>
     </section>
@@ -229,18 +220,18 @@
     <!-- 9 结论与启示 -->
     <section class="slide" data-title="结论与启示">
       <div class="slide-inner">
-        <div class="slide-head">
+        <div class="slide-head animate-up" style="--delay: 0.1s">
           <span class="kicker">08 / 总结</span>
           <h2>金融业务视角的总结与启示</h2>
         </div>
-        <div class="panel accent-panel">
+        <div class="panel accent-panel animate-up" style="--delay: 0.2s">
           <ul class="clean-list">
             <li><strong>声誉即资本：</strong>在信息高度流通的现代金融市场，声誉风险是产生现金流波动和影响融资成本的实质性要素。</li>
-            <li><strong>定价的条件性：</strong>并非所有舆情都会引发股价暴跌或抽贷。金融体系的反应，取决于信息不对称的程度、企业的品牌依赖度以及风险传导的中间变量（如现金流、质押物）。</li>
-            <li><strong>风险管理前置：</strong>现代企业治理应将声誉与合规风险纳入全面风险管理框架，通过完善合同条款（如道德条款）与提升 ESG 治理水平，在事前阻断或弱化金融市场的负面传导。</li>
+            <li><strong>定价的条件性：</strong>金融体系的反应取决于信息不对称程度、品牌依赖度以及风险传导的中间变量（如现金流、质押物），不存在无条件的应激反应。</li>
+            <li><strong>风险管理前置：</strong>现代企业应将声誉与合规风险纳入全面风险管理框架，完善合同条款（如道德条款）与 ESG 治理，在事前阻断金融市场的负面传导。</li>
           </ul>
         </div>
-        <div class="meta-line" style="justify-content: center; margin-top: 20px;">
+        <div class="meta-line animate-up" style="--delay: 0.3s; justify-content: center; margin-top: 30px;">
           <span>感谢聆听，欢迎批评指正。</span>
         </div>
       </div>
